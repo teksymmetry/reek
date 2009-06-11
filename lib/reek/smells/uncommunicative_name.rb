@@ -28,6 +28,11 @@ module Reek
       # uncommunicative.
       ACCEPT_KEY = 'accept'
 
+      # The name of the config field that list the verifier extention
+      # ruby scripts. This script contains a class which is used for verifying
+      # the variable with their associated context.
+      VERIFIER_EXTENSION_KEY = 'verifierExtention'
+
       def self.default_config
         super.adopt(
           REJECT_KEY => [/^.[0-9]*$/],
@@ -43,6 +48,7 @@ module Reek
         super
         @reject = config[REJECT_KEY]
         @accept = config[ACCEPT_KEY]
+        @verifier_extensions = config[VERIFIER_EXTENSION_KEY]
       end
 
       #
@@ -56,10 +62,21 @@ module Reek
 
       def consider_variables(context, report) # :nodoc:
         context.variable_names.each do |name|
-          next unless is_bad_name?(name)
+
           report << SmellWarning.new(self, context,
-                      "has the variable name '#{name}'")
+                    "has the variable name '#{name}'") if is_bad_name?(name)
+
+          accepted, message = verifier_extension_accepted?(context, name)
+          if !accepted
+            report << SmellWarning.new(self, context, message)
+          end
         end
+      end
+
+      def verifier_extension_accepted?(p_context, p_name)
+        return true, nil if !@verifier_extensions
+        accepted, message = VerifierExtensionManager::accepted?(@verifier_extensions, p_context, p_name)
+        return accepted, message
       end
 
       def consider_name(context, report)  # :nodoc:

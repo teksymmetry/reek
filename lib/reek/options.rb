@@ -5,8 +5,8 @@ module Reek
     
   class Options
 
-    CTX_SORT = '%c %w (%s)'
-    SMELL_SORT = '[%s] %c %w'
+    CTX_SORT = '%c %w (%s)' if !const_defined?(:CTX_SORT)
+    SMELL_SORT = '[%s] %c %w' if !const_defined?(:SMELL_SORT)
 
     def self.default_options
       {

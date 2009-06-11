@@ -6,9 +6,17 @@
 # Author: Kevin Rutherford
 #
 
-require 'reek'
-require 'reek/source'
-require 'reek/options'
+# Allow local access
+if ARGV.include?("-TX")
+  ARGV.delete("-TX")
+  require File.join('~/projects/tekSymmetry/reek', 'lib/reek')
+  require File.join('~/projects/tekSymmetry/reek', 'lib/reek/source')
+  require File.join('~/projects/tekSymmetry/reek', 'lib/reek/options')
+else
+  require 'reek'
+  require 'reek/source'
+  require 'reek/options'
+end
 
 exitstatus = 0
 source = Reek::Options.parse(ARGV)
