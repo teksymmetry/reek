@@ -39,6 +39,7 @@ EOB
       set_help_option(opts)
       set_sort_option(config, opts)
       set_version_option(opts)
+      set_output_format_option(config, opts)
     end
 
     def self.parse(args)
@@ -55,7 +56,14 @@ EOB
     end
 
   private
-    
+    def self.set_output_format_option(p_config, p_opts)
+      p_opts.on('-of', '--output-format',
+          "Render output in the specified format, ie. html, " +
+          "by default 'text' is used.") do |value|
+        p_config[:output_format] = value
+      end
+    end
+
     def self.set_version_option(opts)
       opts.on("-v", "--version", "Show version") do
         puts "#{opts.program_name} #{Reek::VERSION}"
