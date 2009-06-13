@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
              "lib/reek/smells/uncommunicative_name.rb",
              "lib/reek/smells/utility_function.rb", "lib/reek/source.rb",
              "lib/reek/spec.rb", "lib/reek/stop_context.rb",
-             "lib/verifier_extension_manager.rb",
+             "lib/reek/verifier_extension_manager.rb",
              "lib/reek/yield_call_context.rb", "reek.gemspec",
              "spec/reek/block_context_spec.rb", "spec/reek/class_context_spec.rb", "spec/reek/code_context_spec.rb", "spec/reek/code_parser_spec.rb", "spec/reek/config_spec.rb", "spec/reek/if_context_spec.rb", "spec/reek/method_context_spec.rb", "spec/reek/module_context_spec.rb", "spec/reek/name_spec.rb", "spec/reek/object_refs_spec.rb", "spec/reek/options_spec.rb", "spec/reek/report_spec.rb", "spec/reek/singleton_method_context_spec.rb", "spec/reek/smells/control_couple_spec.rb", "spec/reek/smells/duplication_spec.rb", "spec/reek/smells/feature_envy_spec.rb", "spec/reek/smells/large_class_spec.rb", "spec/reek/smells/long_method_spec.rb", "spec/reek/smells/long_parameter_list_spec.rb", "spec/reek/smells/nested_iterators_spec.rb", "spec/reek/smells/smell_spec.rb", "spec/reek/smells/uncommunicative_name_spec.rb", "spec/reek/smells/utility_function_spec.rb", "spec/slow/inline_spec.rb", "spec/slow/optparse_spec.rb", "spec/slow/redcloth_spec.rb", "spec/slow/reek_source_spec.rb", "spec/slow/samples/inline.rb", "spec/slow/samples/optparse.rb", "spec/slow/samples/redcloth.rb", "spec/slow/script_spec.rb", "spec/slow/source_list_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/reek.rake", "tasks/rspec.rake"]
   s.homepage = %q{http://wiki.github.com/kevinrutherford/reek}
